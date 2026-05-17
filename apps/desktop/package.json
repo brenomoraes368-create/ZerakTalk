@@ -1,0 +1,43 @@
+{
+  "name": "@zeraktalk/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev --workspace @zeraktalk/web\" \"wait-on http://localhost:3000 && electron .\"",
+    "build": "tsc -p tsconfig.json",
+    "package": "npm run build && electron-builder",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "electron-is-dev": "^3.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.4.5",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.zeraktalk.app",
+    "productName": "ZerakTalk",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

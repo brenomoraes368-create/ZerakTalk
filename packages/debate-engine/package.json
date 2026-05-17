@@ -1,0 +1,17 @@
+{
+  "name": "@zeraktalk/debate-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@zeraktalk/ai-adapters": "0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
